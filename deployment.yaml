@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fakeapp
+  name: fakeapp
+  namespace: fakeapp
+spec:
+  selector:
+    matchLabels:
+      app: fakeapp
+  template:
+    metadata:
+      labels:
+        app: fakeapp
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        env:
+        - name: SECRET_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: username
+        - name: SECRET_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: password
+        resources: {}
