@@ -28,4 +28,14 @@ spec:
             secretKeyRef:
               name: mysecret
               key: password
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: postgres
+              key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres
+              key: password
         resources: {}
