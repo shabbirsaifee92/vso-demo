@@ -156,5 +156,5 @@ First, exec into the vault pod.
     ```
 5. Deploy application
     ```
-    kubectl delete kubectl apply -f deployment.yaml
+    kubectl apply -f deployment.yaml
     ```
