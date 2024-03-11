@@ -121,11 +121,11 @@ First, exec into the vault pod.
     ```
 5. Create policy to read database creds for the "fakeapp"
     ```
-vault policy write fakeapp-role - <<EOF
-path "database/creds/fakeapp-role" {
-capabilities = ["read"]
-}
-EOF
+    vault policy write fakeapp-role - <<EOF
+    path "database/creds/fakeapp-role" {
+    capabilities = ["read"]
+    }
+    EOF
     ```
 6. Assign policy to the kubernetes role
     ```

@@ -1,0 +1,15 @@
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultDynamicSecret
+metadata:
+  namespace: fakeapp
+  name: database-creds
+spec:
+  vaultAuthRef: static-auth
+  mount: database
+  path: creds/fakeapp-role
+  destination:
+    create: true
+    name: postgres
+  rolloutRestartTargets:
+  - kind: Deployment
+    name: fakeapp
